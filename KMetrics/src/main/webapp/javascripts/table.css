@@ -1,0 +1,236 @@
+.tg 
+{
+	border-collapse:collapse;
+	border-spacing:0;
+	border-color:#9ba892;
+	border-width:3px;
+	border-style:none;
+	border-radius: 10px 10px 10px 10px !important;
+	margin:0px auto;
+	border-radius: 10px 10px 10px 10px;
+	border-bottom: 2px solid black;
+}
+
+
+
+.tg td
+{
+	font-family:Arial, sans-serif;
+	font-size:14px;
+	padding:7px 11px;
+	border-style:solid;
+	border-width:0px;
+	overflow:hidden;
+	word-break:normal;
+	border-color:#999;
+	color:#444;
+	background-color:#F7FDFA;
+}
+
+.tg th
+{
+	font-family:Arial, sans-serif;
+	font-size:initial;
+	font-weight:normal;
+	padding:7px 11px;
+	border-style:solid;
+	border-width:2px;
+	overflow:hidden;
+	word-break:normal;
+	border-color:#fff;
+	color:#fff;
+	background-color:#26ADE4;
+}
+
+.tg .gradient-left
+{
+	
+  	background-color: #FBB034;
+	height: 80px;
+	border-radius: 10px 0px 0px 0px ;
+	border-right-style:none;
+	color:#000;
+	font-weight:bold;
+}
+
+.tg .gradient-right
+{
+	
+  	background-color: #FBB034;
+	height: 80px;
+	border-radius: 0px 10px 0px 0px;
+	color:#000;
+	font-weight:bold;
+	border-left-style:none !important;
+}
+
+.tg .gradient
+{
+	
+  	background-color: #FBB034;
+	height: 80px;
+	color:#000;
+	font-weight:bold;
+}
+
+.tg .row-hover-swatt-25 td
+{
+     color:black;
+     
+  /* First we need to help some browsers along for this to work.
+     Just because a vendor prefix is there, doesn't mean it will
+     work in a browser made by that vendor either, it's just for
+     future-proofing purposes I guess. */
+  	-o-transition:.5s;
+  	-ms-transition:.5s;
+  	-moz-transition:.5s;
+  	-webkit-transition:.5s;
+  	
+  	/* ...and now for the proper property */
+  	transition:.5s;
+}
+
+.tg .row-hover-swatt-25:hover td
+{
+	border-top: 1px solid ;
+	border-bottom: 1px solid ;
+	background: #E3E9EA;
+	color: #DF0E0E;
+}
+
+
+.tg .row-hover-swatt-50 td
+{
+
+    color:black;
+    
+  /* First we need to help some browsers along for this to work.
+     Just because a vendor prefix is there, doesn't mean it will
+     work in a browser made by that vendor either, it's just for
+     future-proofing purposes I guess. */
+  	-o-transition:.5s;
+  	-ms-transition:.5s;
+  	-moz-transition:.5s;
+  	-webkit-transition:.5s;
+  	
+  	/* ...and now for the proper property */
+  	transition:.5s;
+}
+
+.tg .row-hover-swatt-50:hover td
+{
+	border-top: 1px solid ;
+	border-bottom: 1px solid ;
+	background: #E3E9EA;
+	color: #DF0E0E;
+	flex-flow: row;
+}
+
+.tg .row-hover-swatt-100 td{
+
+     color:black;
+  /* First we need to help some browsers along for this to work.
+     Just because a vendor prefix is there, doesn't mean it will
+     work in a browser made by that vendor either, it's just for
+     future-proofing purposes I guess. */
+  	-o-transition:.5s;
+  	-ms-transition:.5s;
+  	-moz-transition:.5s;
+  	-webkit-transition:.5s;
+  	
+  	/* ...and now for the proper property */
+  	transition:.5s;
+}
+
+
+.tg .row-hover-swatt-100:hover td{
+	border-top: 1px solid ;
+	border-bottom: 1px solid ;
+	background: #E3E9EA;
+	color: #DF0E0E;
+	
+	}
+	
+
+.tg .row-hover-no-swatt td{
+	-o-transition:.5s;
+  	-ms-transition:.5s;
+  	-moz-transition:.5s;
+  	-webkit-transition:.5s;
+  	/* ...and now for the proper property */
+  	transition:.5s;
+    opacity: 0.5;
+}	
+	
+.tg .row-hover-no-swatt:hover td{
+	/*color:red;*/
+	opacity: 1.0;
+	border-top: 1px solid ;
+	border-bottom: 1px solid ;
+	background: #E3E9EA;
+	color: #DF0E0E;
+}
+
+.tg .row-hover-swatt-zero td{
+	color:black;
+  /* First we need to help some browsers along for this to work.
+     Just because a vendor prefix is there, doesn't mean it will
+     work in a browser made by that vendor either, it's just for
+     future-proofing purposes I guess. */
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  /* ...and now for the proper property */
+  transition:.5s;
+}	
+
+.tg .row-hover-swatt-zero:hover td{
+	/*color:red;*/
+	border-top: 1px solid ;
+	border-bottom: 1px solid ;
+	background: #E3E9EA;
+	color: #DF0E0E;
+	}
+
+	
+.tg .tg-23de{font-size:18px;font-family:Impact, Charcoal, sans-serif !important;}
+
+.tg .tg-vn4c{
+	background-color:#D2E4FC;
+	text-align:left;
+	font-weight:bold;
+	text-shadow: 0 0 0.1px #A4A4A4;
+	border-style:none;
+	}	
+	
+.tg .tg-vn4c-center{
+	background-color:#D2E4FC;
+	text-align:center;
+	font-weight:bold;
+	text-shadow: 0 0 0.1px #A4A4A4;
+	border-style:none;
+	}
+
+.tg .tg-yw4l{
+	vertical-align:top;
+	text-align:left;
+	font-weight:bold;
+	text-shadow: 0 0 0.1px #A4A4A4;
+}
+
+.tg .tg-yw4l-center{
+	vertical-align:top;
+	text-align:center;
+	font-weight:bold;
+	text-shadow: 0 0 0.1px #A4A4A4;
+}
+
+.tg .tg-columns{
+	vertical-align:top;
+	text-align:center;
+	text-shadow: 0 0 1px #A4A4A4;
+	
+}
+
+@media screen and (max-width: 767px) {.tg {width: auto !important;}.tg col {width: auto !important;}.tg-wrap {overflow-x: auto;-webkit-overflow-scrolling: touch;margin: auto 0px;}}</style>

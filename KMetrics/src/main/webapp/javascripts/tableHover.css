@@ -1,0 +1,8 @@
+/* Define the hover highlight color for the table row */
+.hoverTable, .tr:hover
+{
+          color:#fff!important;
+          background-color:#4CAF50!important
+}
+
+

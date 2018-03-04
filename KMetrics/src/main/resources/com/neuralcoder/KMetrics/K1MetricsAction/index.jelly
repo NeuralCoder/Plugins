@@ -1,0 +1,150 @@
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+  <l:layout>
+  <st:include it="${it.project}" page="sidepanel.jelly" />
+	<l:main-panel>
+    	<div class="row">
+    		<div class="col-lg-24">
+				<h2 style="text-align:center;font-weight:bold; font-size:17px">K1- Structural Code Test Coverage
+					<br/><br/><img src="${rootURL}/plugin/KMetrics/K1Formula.png"/>
+				</h2>
+
+				<p style="text-align:center;font-weight:bold; font-size:15px;">K1 - With SWDashboard</p>
+				<div id="k1Chart_div" class="chart_box"></div>
+
+				<button onclick="showK1()"  class="K1Button">K1 Report</button>
+
+				<br/>
+				<br/>
+				
+				<div id="tableK1" style="display:none ">
+					<div class="tg-wrap">
+						<table class="tg" >
+							<tbody>
+								<tr>
+									<th class="gradient-left">Files</th>
+						   	 		<th class="gradient">Coverage Type</th>
+						   	 		<th class="gradient">SWATT File Path</th>
+						   	 		<th class="gradient-right">Coverage Result</th>
+						  		</tr>
+						  	</tbody>
+						</table>
+					</div>
+				</div>
+				
+				<br/>
+				<br/>
+				
+				<p style="text-align:center;font-weight:bold; font-size:15px;">K1 lite - Without SWDashboard</p>
+				<div id="k1LiteChart_div" class="chart_box"></div>
+	
+				<button onclick="showK1Lite()" class="K1Button">K1lite Report</button>
+				
+				<br/><br/>
+				<div id="tableK1lite" style="display:none">
+					<div class="tg-wrap">
+						<table class="tg" >
+							<tbody>
+								<tr>
+									<th class="gradient-left">Files</th>
+						   	 		<th class="gradient">Coverage Type</th>
+						   	 		<th class="gradient">SWATT File Path</th>
+						   	 		<th class="gradient-right">Coverage Result</th>
+						  		</tr>
+						  	</tbody>
+						</table>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!--Load the AJAX API-->
+		<!-- Load c3.css -->
+		<link href="${rootURL}/plugin/KMetrics/javascripts/c3-0.4.10/c3.css" rel="stylesheet" type="text/css"/>
+	
+		<!-- Load main.css -->
+		<link href="${rootURL}/plugin/KMetrics/javascripts/main.css" rel="stylesheet" type="text/css"/>
+	
+		<!-- Load table.css -->
+		<link href="${rootURL}/plugin/KMetrics/javascripts/table.css" rel="stylesheet" type="text/css"/>
+		<link href="${rootURL}/plugin/KMetrics/javascripts/tableHover.css" rel="stylesheet" type="text/css"/>
+	
+		<!-- Load d3.js and c3.js -->
+		<script src="${rootURL}/plugin/KMetrics/javascripts/c3-0.4.10/d3.v3.min.js" charset="utf-8"></script>
+		<script src="${rootURL}/plugin/KMetrics/javascripts/c3-0.4.10/c3.min.js"></script>
+		<script src="${rootURL}/plugin/KMetrics/javascripts/graphFunctions.js"/>
+		<script src="${rootURL}/plugin/KMetrics/javascripts/socket.io.js" charset="utf-8"/>
+		
+		<!-- Load the elements from Java string -->
+	    <script src="${rootURL}/plugin/KMetrics/javascripts/table.js"/>
+	    <script src="${rootURL}/plugin/KMetrics/javascripts/jquery.3.2.1.min.js"></script>
+		<script src="${rootURL}/plugin/KMetrics/javascripts/gs_sortable.js"></script>	 
+
+		<script type="text/javascript">
+			
+			
+			function showK1(){
+				jQuery("#tableK1").toggle(800);
+			}
+		    
+			function showK1Lite(){
+				jQuery("#tableK1lite").toggle(800);
+			}
+					
+			jQuery.noConflict();
+			
+			jQuery(document).ready(function() {	
+				var socket = io.connect('http://' + document.location.hostname + ':8082', {
+				             'reconnection delay' : 2000,
+				             'force new connection' : true
+				           });
+					  
+				socket.on('connect', function() {
+					      console.log('State of connection to socket.io: ' + socket.connected);
+					   });
+					   
+				socket.on('disconnect', function() {
+			  		console.log('Socket disconnected ');
+				   });
+					
+				socket.on('message', function(msg) {
+					var messageData = JSON.parse(msg);
+					console.log('Current project is:  ${it.displayName}');
+					if (messageData.projectName == '${it.displayName}') {
+						if (messageData.buildDisplayNumber == ${it.lastBuild.number} + 1) {
+							window.location.reload();
+						}
+					}
+				   });
+					   
+				window.onbeforeunload = function (e) {
+					 socket.disconnect();
+				}
+			});
+					
+			var k1Container = "k1Chart_div";
+			var k1Type = "area";
+			var k1GroupsArray = "";
+			var k1ColorPattern = ['#409DCB','#114071'];
+			
+			var k1LiteContainer = "k1LiteChart_div";
+			var k1LiteType = "area";
+			var k1LiteGroupsArray = "";
+			var k1LiteColorPattern = ['#409DCB','#114071'];
+			
+			
+			drawCharts(${it.k1Metrics},"",k1Container,k1Type,k1GroupsArray ,"Percentage",k1ColorPattern);
+			drawCharts(${it.K1LiteMetrics},"",k1LiteContainer,k1LiteType,k1LiteGroupsArray ,"Percentage",k1LiteColorPattern);
+
+			// Call the K1 table creator function
+			myCreateFunction("${it.k1Log}","K1");
+			
+			// Call the K1lite table creator function
+			myCreateFunction("${it.k1LiteLog}","K1lite");
+	
+		
+
+		</script>
+	</l:main-panel>
+  </l:layout>
+</j:jelly>
