@@ -1,0 +1,63 @@
+package com.neuralcoder.pcc.xmlparse;
+
+import com.neuralcoder.pcc.xmlparse.XMLParse;
+import java.util.ArrayList;
+
+public class Test {
+
+	public static void main(String[] args)
+	{
+		   //XMLParse.parseSWDashboard("D:\\ts_mirr\\swdb_exporter\\2.6\\swdb_MB.XML");
+		   XMLParse.parseSWDashboard("E:\\SoftwareDevelopment\\Eclipse\\Job\\Tests\\SW_DASHBOARD_PCC.XML");
+		   ArrayList<SwComponent> Srs= new ArrayList<>();
+		   ArrayList<SwComponent> Sdd= new ArrayList<>();
+		   ArrayList<SwComponent> Review= new ArrayList<>();
+		   ArrayList<SwComponent> Mts= new ArrayList<>();
+		   ArrayList<SwComponent> Its= new ArrayList<>();
+		   ArrayList<SwComponent> Rts= new ArrayList<>();
+		   Srs = XMLParse.getComponentList("Srs");
+		   Sdd = XMLParse.getComponentList("Sdd");
+		   Review = XMLParse.getComponentList("Review");
+		   Mts = XMLParse.getComponentList("Mts");
+		   Its = XMLParse.getComponentList("Its");
+		   Rts = XMLParse.getComponentList("Rts");
+		   ArrayList<Release> list = new ArrayList<>();
+				 list =   XMLParse.getReleaseList("next");
+		   
+		   for (SwComponent iterator : Srs){
+			   System.out.println("Name: " + iterator.getName() + "\nTarget: " + iterator.getTarget() + "\nDate: " + iterator.getDate() + "\nJustification: " + iterator.getJustification() + "\n\n");
+		   }
+		   
+		   for (SwComponent iterator : Sdd){
+			   System.out.println("Name: " + iterator.getName() + "\nTarget: " + iterator.getTarget() + "\nDate: " + iterator.getDate() + "\nJustification: " + iterator.getJustification() + "\n\n");
+		   }
+		   
+		   for (SwComponent iterator : Review){
+			   System.out.println("Name: " + iterator.getName() + "\nTarget: " + iterator.getTarget() + "\nDate: " + iterator.getDate() + "\nJustification: " + iterator.getJustification() + "\n\n");
+		   }
+		   
+		   for (SwComponent iterator : Mts){
+			   System.out.println("Name: " + iterator.getName() + "\nTarget: " + iterator.getTarget() + "\nDate: " + iterator.getDate() + "\nJustification: " + iterator.getJustification() + "\n\n");
+		   }
+		   
+		   for (SwComponent iterator : Its){
+			   System.out.println("Name: " + iterator.getName() + "\nTarget: " + iterator.getTarget() + "\nDate: " + iterator.getDate() + "\nJustification: " + iterator.getJustification() + "\n\n");
+		   }
+		   
+		   for (SwComponent iterator : Rts){
+			   System.out.println("Name: " + iterator.getName() + "\nTarget: " + iterator.getTarget() + "\nDate: " + iterator.getDate() + "\nJustification: " + iterator.getJustification() + "\n\n");
+			   
+		   }
+		   
+		 /*  for (Release iterator : list)
+		   {
+			   System.out.println(iterator);
+		   }*/
+			   
+		   
+		  
+		   
+	}
+
+}
+
